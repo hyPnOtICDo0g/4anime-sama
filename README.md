@@ -37,12 +37,24 @@ python 4anime.py
 * The script will now output the links of the Episodes you requested for.
 
 ### Advanced script
-* Create a file (say in.txt) that has the links to episode 1 and the numbers of the start and end episodes you want.
+* Create a file (say in.txt) that has the links to episode 1 and the numbers of the start and end episodes you want. 
+* Format:
+    ```
+    <link>
+    <Start Episode number>
+    <End Episode number>
+    ```
+   e.g.  
+   https://storage.googleapis.com/linear-theater-254209.appspot.com/v5.4animu.me/Naruto/Naruto-Episode-1-1080p.mp4  
+    1  
+    10
+    
 * Execute the command
 ```
-python > out.txt < in.txt
+python 4anime.py > out.txt < in.txt
 ```
 * The generated links will now be stored in the file out.txt that can be used in the below mentioned Download Managers.
+* Remove the prompts (output text) in the text file as the First Episode link is not recognised.
     
 ### Alternative (if you aren't familiar with scripts)
 * Navigate to [Google Colab](https://colab.research.google.com/drive/1fQFLlCmdWXq-h12lcnreRf_bxdPOhE-0).
