@@ -33,7 +33,15 @@ python 4anime.py
 
 * Now you will get the promt which means the script is running
 * Enter the link to the first episode and the start and end of the episode whose links you want to generate
-* The script will now output the links of the episodes you requested for    
+* The script will now output the links of the episodes you requested for
+
+### Advanced script
+* Create a file (say in.txt) that has the links to episode 1 and the numbers of the start and end episodes you want
+* Execute the command
+```
+python > out.txt < in.txt
+```
+* The generated links will now be stored in the file out.txt that can be used in the below mentioned download managers
     
 ### Alternative (if you aren't familiar with scripts)
 * Navigate to [Google Colab](https://colab.research.google.com/drive/1q56pQDS7m4LmQESZju9hy8qOqu6C8-c2).
