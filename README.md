@@ -51,10 +51,9 @@ python 4anime.py
     
 * Execute the command
 ```
-python 4anime.py > out.txt < in.txt
+python 4anime-auto.py > out.txt < in.txt
 ```
 * The generated links will now be stored in the file out.txt that can be used in the below mentioned Download Managers.
-* Remove the prompts (output text) in the text file as the First Episode link is not recognised.
     
 ### Alternative (if you aren't familiar with scripts)
 * Navigate to [Google Colab](https://colab.research.google.com/drive/1fQFLlCmdWXq-h12lcnreRf_bxdPOhE-0).
