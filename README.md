@@ -15,7 +15,7 @@ A batch download link generator for 4anime.to.
 
 * Right click & Copy the download link located beneath the player.
 ![](https://github.com/hyPnOtICDo0g/4anime-sama/blob/master/linkcopy.png?raw=true)
-* Run the script in the repo folder & follow the instructions. (Check **Usage** for more.)
+* Run the script located in the repo folder & follow the instructions. (Check **Usage** for more.)
 
 ## Usage
 
@@ -27,17 +27,17 @@ git clone https://github.com/hyPnOtICDo0g/4anime-sama.git
 ```
 cd 4anime-sama
 ```
-* Excecute the following command to run the script
+* Excecute the following command to run the script.
 ```
 python 4anime.py
 ```
 
 * Now you will get the prompt which means the script is running.
-* Enter the link to the first episode and the start and end of the episode whose links you want to generate.
-* The script will now output the links of the episodes you requested for.
+* Enter the link to the First Episode and the Start & End numbers of the Episode whose links you want to generate.
+* The script will now output the links of the Episodes you requested for.
 
 ### Advanced script
-* Create a file (say in.txt) that has the links to episode 1 and the numbers of the start and end episodes you want
+* Create a file (say in.txt) that has the links to episode 1 and the numbers of the start and end episodes you want.
 * Execute the command
 ```
 python > out.txt < in.txt
@@ -46,8 +46,10 @@ python > out.txt < in.txt
     
 ### Alternative (if you aren't familiar with scripts)
 * Navigate to [Google Colab](https://colab.research.google.com/drive/1fQFLlCmdWXq-h12lcnreRf_bxdPOhE-0).
-* Click on **Open in Playground** located at the top-right corner.
+* Click on **Open in Playground** located at the top-left corner.
+![](https://github.com/hyPnOtICDo0g/4anime-sama/blob/master/collab.png?raw=true)
 * Click on the run button & you'll be prompted to Sign-in to your Google account.
+![](https://github.com/hyPnOtICDo0g/4anime-sama/blob/master/run.png?raw=true)
 * After Signing in, click on the run button & you'll be prompted with a warning.
 * Click on **Run Anyway** & wait for the Jupyter Notebook to process.
 * Later, Scroll down and follow the instructions.
