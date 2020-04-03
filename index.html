@@ -24,7 +24,7 @@
 		<div class="container col-9 col-md-6" style="margin-top: 15px;">
 		
 			<div class="row justify-content-center">
-				<label for="url">Enter episode 1 URL below</label>
+				<label for="url">Enter the First Episode URL below</label>
 			</div>
 			<div class="row">
 				<input type="text" class="form-control" id="url" aria-describedby="basic-addon3" oninput="checkInput()">
@@ -35,7 +35,7 @@
 					<div class="row">
 						<div class="col">
 							<div id="label">
-								<label for="start-ep">Episode you want to generate links from</label>
+								<label for="start-ep">Episode no. you want to generate links from</label>
 							</div>
 							<div id="input">
 								<input type="text" class="form-control" id="start-ep" aria-describedby="basic-addon3" oninput="checkInput()" min="1" placeholder="0">
@@ -44,7 +44,7 @@
 						
 						<div class="col">
 							<div id="label">
-								<label for="end-ep">Episode you want to generate links to</label>
+								<label for="end-ep">Episode no. you want to generate links to</label>
 							</div>
 							<div id="input">
 								<input type="text" class="form-control" id="end-ep" aria-describedby="basic-addon3"  oninput="checkInput()" min="1" placeholder="0">
@@ -63,7 +63,7 @@
 			</div>
 			
 			<div class="row justify-content-center" style="margin-bottom: 15px; margin-top: 15px" id="output-text">
-				The links will be here
+				The links will be here:
 			</div>
 			
 		</div>
@@ -81,7 +81,7 @@
 					status = 0;
 				}
 				else if(document.getElementById("start-ep").value < 1){
-					document.getElementById("info-text").innerHTML = "Episodes start from 1, you know.... -_-";
+					document.getElementById("info-text").innerHTML = "Episodes start from 1, you know... -_-";
 					classes = classes.replace("success", "danger");
 					status = 0;
 				}
