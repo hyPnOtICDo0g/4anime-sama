@@ -37,7 +37,7 @@ python 4anime.py
 * The script will now output the links of the Episodes you requested for.
 
 ### Advanced script
-* Create a file (say in.txt) that has the links to episode 1 and the numbers of the start and end episodes you want. 
+* Create a file (say in.txt) that has the link to Episode 1 and the numbers of the Start and End Episodes you want. 
 * Format:
     ```
     <link>
@@ -45,10 +45,11 @@ python 4anime.py
     <End Episode number>
     ```
    e.g.  
+    ```
    https://storage.googleapis.com/linear-theater-254209.appspot.com/v5.4animu.me/Naruto/Naruto-Episode-1-1080p.mp4  
     1  
     10
-    
+     ```
 * Execute the command
 ```
 python 4anime-auto.py > out.txt < in.txt
