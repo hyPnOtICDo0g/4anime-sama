@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+		<title>4anime-sama</title>
+	</head>
+	<body>
+		<nav class="navbar navbar-dark bg-dark sticky-top">
+			<span class="navbar-brand mb-0 h1 ml-auto">4anime-sama</span>
+			<ul class="navbar-nav ml-auto text-light">
+				<li class="nav-item active">
+					Built using
+					<a href="https://getbootstrap.com/"><img src="./bootstrap-solid.svg" style="height: 1.5rem"></a>
+				</li>
+			</ul>
+		</nav>
+
+		<div class="container col-9 col-md-6" style="margin-top: 15px;">
+		
+			<div class="row justify-content-center">
+				<label for="url">Enter episode 1 URL below</label>
+			</div>
+			<div class="row">
+				<input type="text" class="form-control" id="url" aria-describedby="basic-addon3" oninput="checkInput()">
+			</div>
+
+			<div class="row justify-content-center">
+				<div class="container">
+					<div class="row">
+						<div class="col">
+							<div id="label">
+								<label for="start-ep">Episode you want to generate links from</label>
+							</div>
+							<div id="input">
+								<input type="text" class="form-control" id="start-ep" aria-describedby="basic-addon3" oninput="checkInput()" min="1" placeholder="0">
+							</div>
+						</div>
+						
+						<div class="col">
+							<div id="label">
+								<label for="end-ep">Episode you want to generate links to</label>
+							</div>
+							<div id="input">
+								<input type="text" class="form-control" id="end-ep" aria-describedby="basic-addon3"  oninput="checkInput()" min="1" placeholder="0">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="row justify-content-center" style="margin-bottom: 15px; margin-top: 15px">
+				<a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true" id="gen-button" onclick="">Generate</a>
+			</div>
+			
+			<div class="row justify-content-center alert alert-success" style="margin-bottom: 15px; margin-top: 15px" id="info-text">
+				I'm ready to guide you :)
+			</div>
+			
+			<div class="row justify-content-center" style="margin-bottom: 15px; margin-top: 15px" id="output-text">
+				The links will be here
+			</div>
+			
+		</div>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script>
+		
+			function checkInput() {
+				var classes = document.getElementById("info-text").getAttribute("class");
+				var status = 0;
+				if(!/Episode-0{0,2}1/g.test(document.getElementById("url").value) || /\s/g.test(document.getElementById("url").value)) {
+					document.getElementById("info-text").innerHTML = "URL is not valid -_-, look at the documentation for a list of supported URLs";
+					classes = classes.replace("success", "danger");
+					status = 0;
+				}
+				else if(document.getElementById("start-ep").value < 1){
+					document.getElementById("info-text").innerHTML = "Episodes start from 1, you know.... -_-";
+					classes = classes.replace("success", "danger");
+					status = 0;
+				}
+				else if(document.getElementById("end-ep").value < document.getElementById("start-ep").value){
+					document.getElementById("info-text").innerHTML = "Start episode should be less than end episode -_-";
+					classes = classes.replace("success", "danger");
+					status = 0;
+				}
+				else {
+					document.getElementById("info-text").innerHTML = "So far so good";
+					classes = classes.replace("danger", "success");
+					status = 1;
+				}
+				document.getElementById("info-text").removeAttribute("class");
+				document.getElementById("info-text").setAttribute("class", classes);
+				document.getElementById("gen-button").removeAttribute("class");
+				document.getElementById("gen-button").removeAttribute("aria-disabled");
+				document.getElementById("gen-button").removeAttribute("onclick");;
+				if(status) {
+					document.getElementById("gen-button").setAttribute("class", "btn btn-success btn-lg");
+					document.getElementById("gen-button").setAttribute("aria-disabled", "false");
+					document.getElementById("gen-button").setAttribute("onclick", "linkGen()");
+				}
+				else {
+					document.getElementById("gen-button").setAttribute("class", "btn btn-success btn-lg disabled");
+					document.getElementById("gen-button").setAttribute("aria-disabled", "true");
+					document.getElementById("gen-button").setAttribute("onclick", "");
+				}
+			}
+			
+			function linkGen() {
+				var c;
+				var s = Number(document.getElementById("start-ep").value);
+				var e = Number(document.getElementById("end-ep").value);
+				if(/Episode-1/g.test(document.getElementById("url").value)) c = 1;
+				if(/Episode-01/g.test(document.getElementById("url").value)) c = 2;
+				if(/Episode-001/g.test(document.getElementById("url").value)) c = 3;
+				var arr=[];
+				for(var i=s; i<=e; i++){
+					var num="00"+i;
+					if(c == 1) arr.push(i);
+					if(c == 2) arr.push(num.slice(-2));
+					if(c == 3) arr.push(num.slice(-3));
+				}
+				arr = arr.map(function(value) {
+					return "Episode-"+value;
+				});
+				var link = document.getElementById("url").value;
+				document.getElementById("output-text").innerHTML = arr.map(function(value){
+					var elink = link.replace(/Episode-0{0,2}1/, value);
+					var out = '<a href="'+elink+'" class="btn btn-primary btn-lg" role="button" style="margin: 2px; width: 145px">'+value+'</a>';
+					return out;
+				}).join("<br>");
+			}
+			
+		</script>
+		
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	</body>
+</html>

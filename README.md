@@ -65,6 +65,9 @@ python 4anime-auto.py > out.txt < in.txt
 * Click on **Run Anyway** & wait for the Jupyter Notebook to process.
 * Later, Scroll down and follow the instructions.
 
+### Web version (new!)
+Go [here](https://hyPnOtICDo0g.github.io/4anime-sama/)
+
 ## Downloading
    * Copy the generated links (output) into a text file & save it.
    * They can be batch downloaded using a Download Manager.
