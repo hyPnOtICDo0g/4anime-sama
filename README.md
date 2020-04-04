@@ -19,6 +19,15 @@ A batch download link generator for 4anime.to.
 
 ## Usage
 
+
+### [Web App!](https://hyPnOtICDo0g.github.io/4anime-sama/) 👈
+* Navigate to the link.
+* Enter the link to the First Episode and the Start & End numbers of the Episode whose links you want to generate.
+* The links will be automatically generated & you can either navigate to the links of the induvidual episodes or download a text file containing the links.
+
+### Alternative (using the python script)
+
+
 * Clone the [repo](https://github.com/hyPnOtICDo0g/4anime-sama) to your computer.
 ```
 git clone https://github.com/hyPnOtICDo0g/4anime-sama.git
@@ -31,8 +40,7 @@ cd 4anime-sama
 ```
 python 4anime.py
 ```
-
-* Now you will get the prompt which means the script is running.
+* Now you will get a prompt which means the script is running.
 * Enter the link to the First Episode and the Start & End numbers of the Episode whose links you want to generate.
 * The script will now output the links of the Episodes you requested for.
 
@@ -56,26 +64,30 @@ python 4anime-auto.py > out.txt < in.txt
 ```
 * The generated links will now be stored in the file out.txt that can be used in the below mentioned Download Managers.
     
-### Alternative (if you aren't familiar with scripts)
-* Navigate to [Google Colab](https://colab.research.google.com/drive/1fQFLlCmdWXq-h12lcnreRf_bxdPOhE-0).
-* Click on **Open in Playground** located at the top-left corner.
-![](https://github.com/hyPnOtICDo0g/4anime-sama/blob/master/collab.png?raw=true)
-* Click on the run button & you'll be prompted to Sign-in to your Google account.
-![](https://github.com/hyPnOtICDo0g/4anime-sama/blob/master/run.png?raw=true)
-* After Signing in, click on the run button & you'll be prompted with a warning.
-* Click on **Run Anyway** & wait for the Jupyter Notebook to process.
-* Later, Scroll down and follow the instructions.
-
-### Web App (new!)
-Go [here](https://hyPnOtICDo0g.github.io/4anime-sama/).
-
 ## Downloading
-   * Copy the generated links (output) into a text file & save it.
+   * Using the python script: Copy the generated links (output) into a text file & save it.
+   * Using the Web App: Generate the links and download the text file from the Web App. 
    * They can be batch downloaded using a Download Manager.
-   * Note: After feeding the Download Manager with the text file, Queue your Downloads to 2-3 videos or it may result in a 503 error, as the website doesn't allow a single ip to download multiple files at one go.
-    
+  
         #### Download Managers:
-        * Internet Download Manager(IDM)/Xtreme Download Manager(XDM): For Windows
+        * IDM/XDM: Windows
         * XDM: MAC
-        * uGet: For Linux
+        * uGet: Linux
         * ADM: Android
+
+## Issues
+* After feeding the Download Manager with the text file, queue your downloads to 2-3 videos or it may result in a 503 error, as the website doesn't allow a single ip to download multiple files at one go.
+* There are a few anime whose 2-9th episodes give a 404 error when downloaded. Therfore, add a prefix **0** to the 2-9 episodes in the links.  
+
+ e.g.
+```
+https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-1-1080p.mp4
+https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-02-1080p.mp4
+https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-03-1080p.mp4
+https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-04-1080p.mp4
+https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-05-1080p.mp4
+https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-06-1080p.mp4
+https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-07-1080p.mp4
+https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-08-1080p.mp4
+https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-09-1080p.mp4
+```
