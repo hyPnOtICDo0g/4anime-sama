@@ -70,10 +70,9 @@ python 4anime-auto.py > out.txt < in.txt
    * They can be batch downloaded using a Download Manager.
   
         #### Download Managers:
-        * IDM/XDM: Windows
-        * XDM: MAC
-        * uGet: Linux
-        * ADM: Android
+        * Windows: [IDM](https://www.internetdownloadmanager.com/download.html) / [FDM](https://www.freedownloadmanager.org/download.htm) / [uGet](https://ugetdm.com/downloads/windows/)
+        * MAC: [FDM](https://www.freedownloadmanager.org/download-fdm-for-mac.htm)
+        * Linux: [uGet](https://ugetdm.com/downloads/#linux-distributions)
 
 ## Issues
 * After feeding the Download Manager with the text file, queue your downloads to 2-3 videos or it may result in a 503 error, as the website doesn't allow a single ip to download multiple files at one go.
@@ -91,3 +90,11 @@ https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Be
 https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-08-1080p.mp4
 https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-09-1080p.mp4
 ```
+## Collaborators ✨
+[riskycase](https://github.com/riskycase)  
+[hyPnOtICDo0g](https://github.com/hyPnOtICDo0g/)
+
+## Disclaimer
+This software has been developed only for educational purposes. By no means this encourage content piracy.  
+Please support the original content creators!  
+The developers of this application does not have any affiliation with the content providers available.
