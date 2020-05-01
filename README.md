@@ -4,8 +4,8 @@ A batch download link generator for 4anime.to.
 
 ## Purpose
 
-* The python script can generate download links for anime hosted on [4anime](https://4anime.to/).
-* The generated links can be copied to a text file and batch dowloaded using a download manager. (IDM, ADM, etc)
+* The Web App/python script can generate download links for anime hosted on [4anime](https://4anime.to/).
+* The generated links can be copied to a text file and batch dowloaded using a download manager. (IDM,FDM, etc)
 
 ## Instructions
 * Navigate to [4anime.to](https://4anime.to/).
@@ -15,13 +15,12 @@ A batch download link generator for 4anime.to.
 
 * Right click & Copy the download link located beneath the player.
 ![](https://github.com/hyPnOtICDo0g/4anime-sama/blob/master/linkcopy.png?raw=true)
-* Run the script located in the repo folder & follow the instructions. (Check **Usage** for more.)
+* Run the Web App/python script located in the repo folder & follow the instructions. (Check **Usage** for more.)
 
 ## Usage
 
 
 ### [Web App!](https://hyPnOtICDo0g.github.io/4anime-sama/) 👈
-* Navigate to the link.
 * Enter the link to the First Episode and the Start & End numbers of the Episode whose links you want to generate.
 * The links will be automatically generated & you can either navigate to the links of the induvidual episodes or download a text file containing the links.
 
@@ -92,7 +91,7 @@ https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Be
 ```
 ## Collaborators ✨
 [riskycase](https://github.com/riskycase)  
-[hyPnOtICDo0g](https://github.com/hyPnOtICDo0g/)
+[hyPnOtICDo0g](https://github.com/hyPnOtICDo0g)
 
 ## Disclaimer
 This software has been developed only for educational purposes. By no means this encourage content piracy.  
