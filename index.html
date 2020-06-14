@@ -109,7 +109,7 @@
 			function generateLinks() {
 				var classes = document.getElementById("info-text").getAttribute("class");
 				var status = 0;
-				if(!/Episode-0{0,2}1/g.test(document.getElementById("url").value) || /\s/g.test(document.getElementById("url").value)) {
+				if(!/^((https?)|(ftp):\/\/)\S*Episode-0{0,2}1\D\S*\.\S+/.test(document.getElementById("url").value) || /\s/g.test(document.getElementById("url").value)) {
 					document.getElementById("info-text").innerHTML = "URL is not valid -_-, look at the documentation for a list of supported URLs";
 					classes = classes.replace("success", "danger");
 					status = 0;
@@ -139,12 +139,7 @@
 					if(/Episode-01/g.test(document.getElementById("url").value)) c = 2;
 					if(/Episode-001/g.test(document.getElementById("url").value)) c = 3;
 					var arr=[];
-					for(var i=s; i<=e; i++){
-						var num="00"+i;
-						if(c == 1) arr.push(i);
-						if(c == 2) arr.push(num.slice(-2));
-						if(c == 3) arr.push(num.slice(-3));
-					}
+					for(var i=s; i<=e; i++) arr.push(stringGenerator(i, c));
 					arr = arr.map(function(value) {
 						return "Episode-"+value;
 					});
@@ -165,6 +160,12 @@
 					document.getElementById("linkList").innerHTML = "Enter the right inputs!";
 					document.getElementById("topBar").style.display = "none";
 				}
+			}
+			
+			function stringGenerator(num, len) {
+				var generated = String(num);
+				while (generated.length < len) generated = '0' + generated;
+				return generated;
 			}
 			
 			function download() {
