@@ -20,7 +20,7 @@ A batch download link generator for 4anime.to.
 ## Usage
 
 
-### [Web App!](https://hyPnOtICDo0g.github.io/4anime-sama/) 👈
+### [Web App!](https://hypnoticdo0g.github.io/4Anime-sama/) 👈
 * Enter the link to the First Episode and the Start & End numbers of the Episode whose links you want to generate.
 * The links will be automatically generated & you can either navigate to the links of the induvidual episodes or download a text file containing the links.
 
