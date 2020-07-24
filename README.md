@@ -74,21 +74,10 @@ python 4anime-auto.py > out.txt < in.txt
         * Linux: [uGet](https://ugetdm.com/downloads/#linux-distributions)
 
 ## Issues
+* There may be a couple exceptions, but I've found only one anime so far which changes the URL format in-between the episodes. The problem lies with the source so until I figure out a workaround, please open an issue or report the anime name in the comments in this [thread](https://www.reddit.com/r/ScriptSwap/comments/fu54ch/made_a_python_script_for_downloading_anime_from/). Instructions to download if the above ever happens lies in this [gist](https://gist.github.com/hyPnOtICDo0g/bfa2c6194737d8b4c6df89c89b91d895).
+* If you ever encounter any other errors then navigate to the above gist.
 * After feeding the Download Manager with the text file, queue your downloads to 2-3 videos or it may result in a 503 error, as the website doesn't allow a single ip to download multiple files at one go.
-* There are a few anime whose 2-9th episodes give a 404 error when downloaded. Therfore, add a prefix **0** to the 2-9 episodes in the links.  
 
- e.g.
-```
-https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-1-1080p.mp4
-https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-02-1080p.mp4
-https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-03-1080p.mp4
-https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-04-1080p.mp4
-https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-05-1080p.mp4
-https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-06-1080p.mp4
-https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-07-1080p.mp4
-https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-08-1080p.mp4
-https://storage.googleapis.com/linear-theater-254209.appspot.com/v2.4animu.me/Beastars/Beastars-Episode-09-1080p.mp4
-```
 ## Collaborators ✨
 [riskycase](https://github.com/riskycase)  
 [hyPnOtICDo0g](https://github.com/hyPnOtICDo0g)
