@@ -3,7 +3,7 @@ import re
 #Get link of episode 1
 
 link = input("")
-if(re.search("-0{0,2}1-", link)):
+if(re.search("-0{0,2}1-1080p", link)):
 
 #Get number of episodes to download
 
@@ -16,16 +16,16 @@ if(re.search("-0{0,2}1-", link)):
 
 	#Apply appropriate formatting based on the naming style
 
-		if(link.find("-1-") >= 0):
-			print(link.replace("-1-", "-%d-" % x))
+		if(link.find("-1-1080p") >= 0):
+			print(link.replace("-1-1080p", "-%d-1080p" % x))
 
 	#Below statements need replace since we'll need leading zeros
 
-		elif(link.find("-01-") >= 0):
-			print(link.replace("-01-", "-%2d-" % x).replace(" ", "0"))
+		elif(link.find("-01-1080p") >= 0):
+			print(link.replace("-01-1080p", "-%2d-1080p" % x).replace(" ", "0"))
 
-		elif(link.find("-001-") >= 0):
-			print(link.replace("-001-", "-%3d-" % x).replace(" ", "0"))
+		elif(link.find("-001-1080p") >= 0):
+			print(link.replace("-001-1080p", "-%3d-1080p" % x).replace(" ", "0"))
 else:
 
 	#We don't support this format, check the documentation
