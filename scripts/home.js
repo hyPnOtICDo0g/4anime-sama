@@ -1,5 +1,10 @@
+// Specifies the numbers of the start and end episodes, as well as array of
+// episode links as global variables so they can be conviniently accessed
 let start, end, links;
 
+/* 
+ * Iterates over numbers from start to end and generates links for each
+ */
 function generateLinks() {	
 	
 	const link = document.getElementById('url').value;
@@ -15,6 +20,10 @@ function generateLinks() {
 	
 }
 
+/* 
+ * Once links are generated, displays a preview of the same with buttons for 
+ * each link
+ */
 function displayLinks() {
 	
 	document.getElementById('linkButtons').innerHTML = links.map( (link,index) => 
@@ -26,6 +35,10 @@ function displayLinks() {
 	
 }	
 
+/* 
+ * Checks that the inputs specified are correct, ie, link is supported, start
+ * number is positive, end number is greater than start number
+ */
 function validateInput() {
 	
 	start = Number(document.getElementById('start-ep').value);
@@ -44,6 +57,10 @@ function validateInput() {
 		setMessage(true, 'So far so good');
 }
 
+/* 
+ * Sets the message for the user specifying which inputs are invalid, if any,
+ * else fires the generator
+ */
 function setMessage(safe, message) {
 	
 	var classes = document.getElementById('info-text').getAttribute('class');
@@ -64,12 +81,19 @@ function setMessage(safe, message) {
 	document.getElementById('info-text').innerHTML = message;
 }
 
+/* 
+ * Generates the string that will be replaced while generating the links
+ */
 function stringGenerator(num, len) {
 	var generated = String(num)+'-1080p';
 	while (generated.length < len - 1) generated = '0' + generated;
 	return '-'+generated;
 }
 
+/* 
+ * Creates a temporary element with UTF-8 content encoded link, clicks on it
+ * and deletes it afterward
+ */
 function download() {
 	
 	var element = document.createElement('a');
@@ -84,6 +108,9 @@ function download() {
 	document.body.removeChild(element);
 }
 
+/* 
+ * Sets clipboard to the list of links
+ */
 function copy() {
 	
 	navigator.clipboard.writeText(links.join('\n'));
