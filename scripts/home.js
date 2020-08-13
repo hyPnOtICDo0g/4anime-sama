@@ -1,17 +1,17 @@
 // Specifies the numbers of the start and end episodes, as well as array of
 // episode links as global variables so they can be conviniently accessed
-let start, end, links;
+var start, end, links;
 
 /* 
  * Iterates over numbers from start to end and generates links for each
  */
 function generateLinks() {	
 	
-	const link = document.getElementById('url').value;
-	let length = /-0{0,2}1-1080p/.exec(link)[0].length;
+	var link = document.getElementById('url').value;
+	var length = /-0{0,2}1-1080p/.exec(link)[0].length;
 	
-	let array = [];
-	for (let iterator = start; iterator <= end; iterator++ ) 
+	var array = [];
+	for (var iterator = start; iterator <= end; iterator++ ) 
 		array.push(link.replace(/-0{0,2}1-1080p/, stringGenerator(iterator, length)));
 	
 	links = array;
@@ -21,14 +21,21 @@ function generateLinks() {
 }
 
 /* 
+ * Generates a button for every link
+ */
+function makeButton(link, index) {
+	
+	return '<a href="'+link+'" class="btn btn-primary" role="button" style="margin: 2px; width: 125px">Episode '+( start + index )+'</a>';
+	
+}
+
+/* 
  * Once links are generated, displays a preview of the same with buttons for 
  * each link
  */
 function displayLinks() {
 	
-	document.getElementById('linkButtons').innerHTML = links.map( (link,index) => 
-		'<a href="'+link+'" class="btn btn-primary" role="button" style="margin: 2px; width: 125px">Episode '+( start + index )+'</a>'
-	).join('');
+	document.getElementById('linkButtons').innerHTML = links.map(makeButton).join('');
 	document.getElementById('linkList').innerHTML = links.join('<br>');
 	document.getElementById('btnGroup').style.display = 'block';
 	document.getElementById('btnGroup').setAttribute('class', 'dl-flex ml-auto');
@@ -92,7 +99,7 @@ function stringGenerator(num, len) {
 
 /* 
  * Creates a temporary element with UTF-8 content encoded link, clicks on it
- * and deletes it afterward
+ * and devares it afterward
  */
 function download() {
 	
