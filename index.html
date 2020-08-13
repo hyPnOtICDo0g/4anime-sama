@@ -24,7 +24,7 @@
 				<label for="url">Enter the First Episode URL below</label>
 			</div>
 			<div class="row">
-				<input type="url" class="form-control" id="url" aria-describedby="basic-addon3" oninput="generateLinks()">
+				<input type="url" class="form-control" id="url" aria-describedby="basic-addon3" oninput="validateInput()">
 			</div>
 
 			<div class="row justify-content-center">
@@ -45,13 +45,13 @@
 					<div class="row">
 						<div class="col">
 							<div id="input">
-								<input type="number" class="form-control" id="start-ep" aria-describedby="basic-addon3"	oninput="generateLinks()" min="1" value="1">
+								<input type="number" class="form-control" id="start-ep" aria-describedby="basic-addon3"	oninput="validateInput()" min="1" value="1">
 							</div>
 						</div>
 						
 						<div class="col">
 							<div id="input">
-								<input type="number" class="form-control" id="end-ep" aria-describedby="basic-addon3" oninput="generateLinks()" min="1" value="1">
+								<input type="number" class="form-control" id="end-ep" aria-describedby="basic-addon3" oninput="validateInput()" min="1" value="1">
 							</div>
 						</div>
 					</div>
@@ -83,7 +83,7 @@
 
 						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
 							<div class="card-body">
-								<div class="d-flex" id="topBar">
+								<div class="d-flex" id="btnGroup">
 									<div class="btn-group" role="group">
 										<button type="button" class="btn btn-success"><i class="fas fa-download" onclick="download()"></i></button>
 										<button type="button" class="btn btn-success"><i class="far fa-clipboard" onclick="copy()"></i></button>
