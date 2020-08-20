@@ -7,7 +7,7 @@ var start, end, links;
  */
 function generateLinks() {	
 	
-	var link = document.getElementById('url').value;
+	var link = document.getElementById('link').value;
 	var length = /-0{0,2}1-1080p/.exec(link)[0].length;
 	
 	var array = [];
@@ -25,7 +25,7 @@ function generateLinks() {
  */
 function makeButton(link, index) {
 	
-	return '<a href="'+link+'" class="btn btn-primary" role="button" style="margin: 2px; width: 125px">Episode '+( start + index )+'</a>';
+	return '<a href="'+link+'" class="uk-button uk-button-default" role="button" style="margin: 2px; width: 150px">Episode '+( start + index )+'</a>';
 	
 }
 
@@ -35,10 +35,8 @@ function makeButton(link, index) {
  */
 function displayLinks() {
 	
-	document.getElementById('linkButtons').innerHTML = links.map(makeButton).join('');
-	document.getElementById('linkList').innerHTML = links.join('<br>');
-	document.getElementById('btnGroup').style.display = 'block';
-	document.getElementById('btnGroup').setAttribute('class', 'dl-flex ml-auto');
+	document.getElementById('buttons').innerHTML = links.map(makeButton).join('');
+	document.getElementById('list').innerHTML = links.join('<br>');
 	
 }	
 
@@ -48,44 +46,40 @@ function displayLinks() {
  */
 function validateInput() {
 	
-	start = Number(document.getElementById('start-ep').value);
-	end = Number(document.getElementById('end-ep').value);
+	start = Number(document.getElementById('startEp').value);
+	end = Number(document.getElementById('endEp').value);
 	
-	if(!/^((https?)|(ftp):\/\/)\S*(-0{0,2}1-1080p)\S*\.\S+/.test(document.getElementById('url').value) || /\s/g.test(document.getElementById('url').value))
-		setMessage(false, 'URL is not valid -_-, look at the documentation for a list of supported URLs');
+	if(!/^((https?)|(ftp):\/\/)\S*(-0{0,2}1-1080p)\S*\.\S+/.test(document.getElementById('link').value) || /\s/g.test(document.getElementById('link').value))
+		setMessage('link', 'Oh rats, I cannot use this URL. Please have a look at the documentation.');
 	
-	else if(Number(document.getElementById('start-ep').value) < 1)
-		setMessage(false, 'Episodes start from 1, you know... -_-');
+	else if(start < 1)
+		setMessage('startEp', 'So far there has been none, who start their episodes with a number less than one!');
 	
-	else if(Number(document.getElementById('end-ep').value) < Number(document.getElementById('start-ep').value))
-		setMessage(false, 'Start episode should be less than or equal to end episode -_-');
+	else if(end < start)
+		setMessage('endEp', 'Life always goes forward, so must you. Make sure end episode is greater than or equal to start episode');
 	
 	else 
-		setMessage(true, 'So far so good');
+		setMessage(false, 'You have earned the spell, click on the GENERATE button and I shall cast it for you');
 }
 
 /* 
  * Sets the message for the user specifying which inputs are invalid, if any,
  * else fires the generator
  */
-function setMessage(safe, message) {
+function setMessage(id, message) {
 	
-	var classes = document.getElementById('info-text').getAttribute('class');
+	['link', 'startEp', 'endEp'].forEach(element => document.getElementById(element).style = null);
 	
-	if(safe) {
-		classes = classes.replace('danger', 'success');
-		generateLinks();
+	if(id) {
+		document.getElementById(id).style.color = '#FF0000';
+		document.getElementById('generate').setAttribute('hidden', null);
 	}
 	
 	else {
-		classes = classes.replace('success', 'danger');
-		document.getElementById('linkButtons').innerHTML = 'Enter the right inputs!';
-		document.getElementById('linkList').innerHTML = 'Enter the right inputs!';
-		document.getElementById('btnGroup').style.display = 'none';
+		document.getElementById('generate').removeAttribute('hidden');
 	}
 	
-	document.getElementById('info-text').setAttribute('class', classes);
-	document.getElementById('info-text').innerHTML = message;
+	document.getElementById('message').innerHTML = message;
 }
 
 /* 
