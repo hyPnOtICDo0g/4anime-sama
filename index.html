@@ -1,116 +1,75 @@
 <!doctype html>
 <html lang="en">
 	<head>
+		
+		<!-- Favicon link -->
+		<link rel="shortcut icon" href = "images/favicon.ico">
+		
 		<!-- Required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		
-		<!-- Font Awesome icons -->
-		<script src="https://kit.fontawesome.com/a58364d2f4.js" crossorigin="anonymous"></script>
+		<!-- UIkit CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.6/dist/css/uikit.min.css" />
 
 		<title>4Anime-sama</title>
 	</head>
-	<body>
-		<nav class="navbar navbar-dark bg-dark sticky-top">
-			<span class="navbar-brand mb-0 h1 ml-auto mr-auto">4Anime-sama</span>
-		</nav>
-
-		<div class="container col-10 col-md-7" style="margin-top: 15px;">
+	<body class="uk-background-secondary uk-light">
+	
+		<header>
+			<div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky uk-navbar-transparent; cls-inactive: uk-navbar-transparent uk-light; top: 200">
+				<nav class="uk-navbar-container uk-padding-small" uk-navbar="" style="background: #181818">
+					<div class="uk-navbar-center">
+						<img src="https://i.imgur.com/7O4EQxM.png" style="height: 2.5rem; margin-right: 5px">
+						<div class="uk-navbar-logo uk-text-large">4Anime-sama</div>
+					</div>
+				</nav>
+			</div>
+		</header>
 		
-			<div class="row justify-content-center">
-				<label for="url">Enter the First Episode URL below</label>
-			</div>
-			<div class="row">
-				<input type="url" class="form-control" id="url" aria-describedby="basic-addon3" oninput="validateInput()">
-			</div>
-
-			<div class="row justify-content-center">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-							<div id="label">
-								<label for="start-ep">Episode no. you want to generate links from</label>
-							</div>
-						</div>
-						
-						<div class="col">
-							<div id="label">
-								<label for="end-ep">Episode no. you want to generate links to</label>
-							</div>
-						</div>
+		<div uk-height-viewport="expand: true" class="uk-padding">
+			<div id="input" class="uk-align-center uk-width-1-1 uk-width-2-3@m uk-width-1-2@l uk-width-1-3@xl">
+				<form>
+					<label class="uk-form-label" for="link">Enter URL for Episode 1 below</label>
+					<input class="uk-input uk-margin-small" type="text" id="link" placeholder="https://Server/Anime-Name/Anime-Name-Episode-01-1080p.mp4" oninput="validateInput()">
+					<span class="uk-form-label">Enter episode numbers to generate links for</span>
+					<div class="uk-flex uk-flex-wrap uk-flex-wrap-stretch uk-child-width-expand">
+						<input class="uk-input uk-margin-small-right" type="number" placeholder="Start episode number" id="startEp" value=1 oninput="validateInput()">
+						<input class="uk-input" type="number" placeholder="End episode number" id="endEp" value=1 oninput="validateInput()">
 					</div>
-					<div class="row">
-						<div class="col">
-							<div id="input">
-								<input type="number" class="form-control" id="start-ep" aria-describedby="basic-addon3"	oninput="validateInput()" min="1" value="1">
-							</div>
-						</div>
-						
-						<div class="col">
-							<div id="input">
-								<input type="number" class="form-control" id="end-ep" aria-describedby="basic-addon3" oninput="validateInput()" min="1" value="1">
-							</div>
-						</div>
-					</div>
+				</form>
+				<div class="uk-padding-small uk-margin-small" style="background: #282828;">
+					The wizard says, "<span id="message">I am at your service</span>"
 				</div>
+				<button id="generate" class="uk-button uk-button-default uk-align-right" uk-toggle="target: #input, #links; animation: uk-animation-slide-right, uk-animation-slide-left; queued: true; duration: 300" hidden onclick="generateLinks()">Generate</button>
 			</div>
-			
-			<div class="row justify-content-center alert alert-success" style="margin-bottom: 15px; margin-top: 15px" id="info-text">
-				I'm ready to guide you :)
-			</div>
-			
-			<div class="row justify-content-center" style="margin-bottom: 15px; margin-top: 15px" id="output-text">
-				<div class="accordion" id="accordionExample" style="width: 100%">
-					<div class="card">
-						<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-							Individual download links
-						</button>
-
-						<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-							<div class="card-body" id="linkButtons">
-								Links not yet generated!
+			<div id="links" class="uk-align-center uk-width-1-1 uk-width-2-3@m uk-width-1-2@l uk-width-1-3@xl" hidden>
+				<ul uk-accordion>
+					<li>
+						<a class="uk-accordion-title">Individual Links</a>
+						<div class="uk-accordion-content" id="buttons"></div>
+					</li>
+					<li>
+						<a class="uk-accordion-title">List of links (Advanced usage)</a>
+						<div class="uk-accordion-content">
+							<div class="uk-button-group uk-margin-small">
+								<button class="uk-button uk-button-small uk-button-default" uk-icon="icon: download" onclick="download()" uk-tooltip="title: Download a plain text file containing the below links; animation: uk-animation-fade, uk-animation-fade"></button>
+								<button class="uk-button uk-button-small uk-button-default" uk-icon="icon: copy" onclick="copy()" uk-tooltip="title: Copy the below links to clipboard; animation: uk-animation-fade, uk-animation-fade"></button>
 							</div>
+							<div id="list" class="uk-padding-small" style="background: #282828; max-height: calc(100vh - 352px); overflow-y: auto"></div>
 						</div>
-						
-					</div>
-					<div class="card">
-						<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-							Raw links 
-						</button>
-
-						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-							<div class="card-body">
-								<div class="d-flex" id="btnGroup">
-									<div class="btn-group" role="group">
-										<button type="button" class="btn btn-success"><i class="fas fa-download" onclick="download()"></i></button>
-										<button type="button" class="btn btn-success"><i class="far fa-clipboard" onclick="copy()"></i></button>
-									</div>
-								</div>
-								<code id="linkList">
-									Links not yet generated
-								</code>
-							</div>
-						</div>
-					</div>
-				</div>
+					</li>
+				</ul>
+				<button class="uk-button uk-button-default" uk-toggle="target: #input, #links; animation: uk-animation-slide-left, uk-animation-slide-right; queued: true; duration: 300">Back</button>
 			</div>
-		
-			<div class="row justify-content-center">
-				Built using <a href="https://getbootstrap.com/"><img src="./images/bootstrap-solid.svg" style="height: 1.5rem; margin-left: 0.2rem"></a>
-			</div>
-			
 		</div>
 		
-		<!-- Main JavaScript, do not clog homepage with inline scripts -->
+		<!-- Main JavaScript, do not clog homepage with inline scripts-->
 		<script src="./scripts/home.js"></script>
+
+		<!-- UIkit JS -->
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.5.6/dist/js/uikit.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.5.6/dist/js/uikit-icons.min.js"></script>
 		
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	</body>
 </html>
