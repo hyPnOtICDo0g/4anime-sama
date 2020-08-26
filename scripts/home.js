@@ -52,6 +52,14 @@ function validateInput() {
 	if(!/^((https?)|(ftp):\/\/)\S*(-0{0,2}1-1080p)\S*\.\S+/.test(document.getElementById('link').value) || /\s/g.test(document.getElementById('link').value))
 		setMessage('link', 'Oh rats, I cannot use this URL. Please have a look at the documentation.');
 	
+	else if(document.getElementById('link').value.indexOf('?') + 1) {
+		link = document.getElementById('link').value;
+		link = link.substring(0, link.indexOf('?'));
+		link = link.replace('://', '://storage.googleapis.com/linear-theater-254209.appspot.com/');
+		document.getElementById('link').value = link;
+		setMessage(false, 'The link you bring is of a format completely new, so I changed it for you.');
+	}
+	
 	else if(start < 1)
 		setMessage('startEp', 'So far there has been none, who start their episodes with a number less than one!');
 	
