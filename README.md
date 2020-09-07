@@ -9,6 +9,11 @@ A batch download link generator for 4anime.to.
 ![GitHub forks](https://img.shields.io/github/forks/hyPnOtICDo0g/4Anime-sama?style=social)
 ![GitHub stars](https://img.shields.io/github/stars/hyPnOtICDo0g/4Anime-sama?style=social)
 
+### Important:
+
+Recently, 4anime has changed their URL format & blocked multiple downloads, therefore the generator doesn't work anymore.  
+Still, stick around and have a look at the code.
+
 ## Purpose
 
 * The Web App/python script can generate download links for anime hosted on [4anime](https://4anime.to/).
