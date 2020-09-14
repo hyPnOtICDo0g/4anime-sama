@@ -11,8 +11,7 @@ A batch download link generator for 4anime.to.
 
 ### Important:
 
-Recently, 4anime has changed their URL format & blocked multiple downloads, therefore the generator doesn't work anymore.  
-Still, stick around and have a look at the code.
+Recently, 4anime has changed their URL format & blocked multiple downloads for several anime titles, but the ongoing ones are intact. The generator works only for the ongoing anime.
 
 ## Purpose
 
