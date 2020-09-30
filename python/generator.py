@@ -25,7 +25,7 @@ class Generator:
 		
 		#Checks if there is a query string, dumps it and changes hostname
 		if(self.link.find('?') + 1):
-			self.link = self.link[:self.link.index('?')].replace('://', '://storage.googleapis.com/linear-theater-254209.appspot.com/')
+			self.link = self.link[:self.link.index('?')].replace('://', '://storage.googleapis.com/justawesome-183319.appspot.com/')
 		#Checks if the link is supported
 		if(re.search("-0{0,2}1-1080p", self.link)):
 			self.loop()
