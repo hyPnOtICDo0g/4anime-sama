@@ -55,7 +55,7 @@ function validateInput() {
 	else if(document.getElementById('link').value.indexOf('?') + 1) {
 		link = document.getElementById('link').value;
 		link = link.substring(0, link.indexOf('?'));
-		link = link.replace('://', '://storage.googleapis.com/linear-theater-254209.appspot.com/');
+		link = link.replace('://', '://storage.googleapis.com/justawesome-183319.appspot.com/');
 		document.getElementById('link').value = link;
 		setMessage(false, 'The link you bring is of a format completely new, so I changed it for you.');
 	}
