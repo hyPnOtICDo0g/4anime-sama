@@ -1,13 +1,15 @@
-# <img src = "https://i.imgur.com/7O4EQxM.png" width="64">&ensp;4Anime-sama
-A batch download link generator for 4anime.to.
+<p align="center"><img src="https://i.imgur.com/7O4EQxM.png" width="150"></a></p> 
+<h2 align="center"><b>4Anime-sama</b></h2>
+<h4 align="center">A batch download link generator for 4anime.to.</h4>
 
-## Badges of Honor
-[![Maintainability](https://api.codeclimate.com/v1/badges/9b40b905b63866b29a18/maintainability)](https://codeclimate.com/github/hyPnOtICDo0g/4Anime-sama/maintainability)
-![GitHub repo size](https://img.shields.io/github/repo-size/hyPnOtICDo0g/4Anime-sama)
-[![GitHub](https://img.shields.io/github/license/hyPnOtICDo0g/4Anime-sama)](https://github.com/hyPnOtICDo0g/4Anime-sama/blob/master/LICENSE)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/hyPnOtICDo0g/4Anime-sama/graphs/commit-activity)
-![GitHub forks](https://img.shields.io/github/forks/hyPnOtICDo0g/4Anime-sama?style=social)
-![GitHub stars](https://img.shields.io/github/stars/hyPnOtICDo0g/4Anime-sama?style=social)
+<p align="center">
+<a href="https://codeclimate.com/github/hyPnOtICDo0g/4Anime-sama/maintainability" alt="Maintainability"><img src="https://img.shields.io/codeclimate/maintainability/hyPnOtICDo0g/4Anime-sama?color=%2345D298&style=flat-square" ></a>
+<a href="https://github.com/hyPnOtICDo0g/4Anime-sama/blob/master/LICENSE" alt="GitHub"><img src="https://img.shields.io/github/license/hyPnOtICDo0g/4Anime-sama?color=4285dd&style=flat-square" ></a>
+<a alt="GitHub repo size"><img src="https://img.shields.io/github/repo-size/hyPnOtICDo0g/4Anime-sama?color=4285dd&style=flat-square" ></a>
+ <a href="https://github.com/hyPnOtICDo0g/4Anime-sama/graphs/commit-activity" alt="Maintenance"><img src="https://img.shields.io/badge/Maintained%3F-yes-blue?color=4285dd&style=flat-square" ></a>
+<a href="https://github.com/hyPnOtICDo0g/4Anime-sama/stargazers" alt="GitHub stars"><img src="https://img.shields.io/github/stars/hyPnOtICDo0g/4Anime-sama?style=social" ></a>
+<a href="https://github.com/hyPnOtICDo0g/4Anime-sama/network/members" alt="GitHub forks"><img src="https://img.shields.io/github/forks/hyPnOtICDo0g/4Anime-sama?style=social" ></a>
+ <hr>
 
 ## Purpose
 
@@ -15,7 +17,7 @@ A batch download link generator for 4anime.to.
 * The generated links can be copied to a text file and batch dowloaded using a download manager. (IDM,FDM, etc)
 
 ## Documentation
- Head over to the [Wiki](https://github.com/hyPnOtICDo0g/4Anime-sama/wiki), for more instructions on downloading your favourite anime! ヽ(♡‿♡)ノ
+ Head over to the [Wiki](https://github.com/hyPnOtICDo0g/4Anime-sama/wiki) for more instructions on downloading your favourite anime! ヽ(♡‿♡)ノ
 
 ## Collaborators ✨
 [riskycase](https://github.com/riskycase)  
